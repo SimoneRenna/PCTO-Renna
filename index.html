@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il mio PCTO - Maturità</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset e stili base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Menu sticky */
+        header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, #2a2aa8 0%, #171418 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: fadeInDown 0.8s ease-out;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: white;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Sezione hero */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://bbcc.regione.emilia-romagna.it/pater/data/scheda_AM/BOLOGNA_02/BO104-07.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 0 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            animation: fadeIn 1.2s ease-out;
+        }
+        
+        .hero .btn {
+            padding: 0.8rem 2rem;
+            background: #253380;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1.4s ease-out;
+        }
+        
+        .hero .btn:hover {
+            background: #4d4e53;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Sezioni principali */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #253380;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: #253380;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* Sezione Chi sono (senza foto) */
+        .about {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .about h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #253380;
+        }
+        
+        .about p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            text-align: left;
+            line-height: 1.8;
+        }
+        
+        /* Sezione Competenze */
+        .skills {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-card i {
+            font-size: 2.5rem;
+            color: #253380;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #253380;
+        }
+        
+        /* Sezione Esperienze */
+        .experiences {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .experience-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .experience-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .experience-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .experience-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .experience-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .experience-card:hover .experience-img img {
+            transform: scale(1.1);
+        }
+        
+        .experience-content {
+            padding: 2rem;
+        }
+        
+        .experience-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #253380
+        }
+        
+        .experience-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .experience-content .btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: #253380;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .experience-content .btn:hover {
+            background: #4d4e53;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-date {
+            display: inline-block;
+            background-color: #253380;
+            color: white;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            margin: -12px auto 15px auto;
+            position: relative;
+            z-index: 1;
+            border-radius: 50px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover .experience-date {
+            background-color: #4d4e53;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2a2aa8 0%, #171418 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            color: #f1f1f1;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #f1f1f1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Animazioni */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from { 
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from { 
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu sticky -->
+    <header>
+        <nav>
+            <div class="logo">Il mio PCTO</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#chi-sono">Chi sono</a>
+                <a href="#competenze">Competenze</a>
+                <a href="#esperienze">Esperienze</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sezione Hero -->
+    <section class="hero" id="home">
+        <h1>Il mio percorso PCTO</h1>
+        <p>Un viaggio attraverso le esperienze formative che hanno arricchito il mio percorso scolastico</p>
+    </section>
+
+    <!-- Sezione Chi sono (senza foto) -->
+    <section id="chi-sono">
+        <h2 class="section-title">Chi sono</h2>
+        <div class="about">
+            <h3>Ciao, sono Simone Renna</h3>
+            <p>Sono uno studente delle Aldini Valeriani della classe 5CIN dell'indirizzo informatico.</p>
+            <p>Durante il mio percorso scolastico, ho avuto l'opportunità di partecipare a diverse esperienze PCTO che mi hanno permesso di crescere sia professionalmente che personalmente.</p>
+            <p>In questo sito voglio condividere con voi le competenze che ho acquisito e le esperienze più significative che hanno caratterizzato questi tre anni.</p>
+        </div>
+    </section>
+
+    <!-- Sezione Competenze -->
+    <section id="competenze">
+        <h2 class="section-title">Competenze sviluppate</h2>
+        <div class="skills">
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Lavoro di squadra</h3>
+                    <p>Ho imparato a collaborare efficacemente in gruppo, rispettando i ruoli e contribuendo al raggiungimento degli obiettivi comuni.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Problem solving</h3>
+                    <p>Ho sviluppato la capacità di analizzare situazioni complesse e trovare soluzioni creative ed efficaci.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Comunicazione</h3>
+                    <p>Ho migliorato le mie capacità comunicative, sia verbali che scritte, in diversi contesti professionali.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Esperienze -->
+    <section id="esperienze">
+        <h2 class="section-title">Le mie esperienze PCTO</h2>
+        <div class="experiences">
+            <!-- Esperienza 1 -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://www.mast.org/documents/41694/42049/Facciata-MAST-2.jpg/6150af4f-5821-4fd7-824b-e236e91d93c8?t=1413885019916" alt="Esperienza 1">
+                </div>
+                <div class="experience-date">
+                    Novembre-Dicembre 2022
+                </div>
+                <div class="experience-content">
+                    <h3>Primo anno</h3>
+                    <p>Durante il primo anno ho avuto l'opportunità di lavorare presso la Fondazione MAST di Bologna, dove mi sono occupato di ideare un metodo rivoluzionario di packaging di un prodotto.</p>
+                    <a href="esperienza1.html" class="btn">Dettagli</a>
+                </div>
+            </div>
+            
+            <!-- Esperienza 2 -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://cdn.archilovers.com/projects/c_383_bc7d8e47-c2ae-4293-a29c-acd093402532.jpg" alt="Esperienza 2">
+                </div>
+                <div class="experience-date">
+                    03/05/2024-31/05/2024
+                </div>
+                <div class="experience-content">
+                    <h3>Secondo anno</h3>
+                    <p>L'esperienza del secondo anno è stata particolarmente significativa. Ho lavorato presso la torre CNA per la CEDAB Srl. come tecnico informatico a 360 gradi e grazie ai vari interventi sia dal vivo che da remoto in ufficio ho avuto modo di approfondire le mie conoscenze informatiche su più fronti.</p>
+                    <a href="esperienza2.html" class="btn">Dettagli</a>
+                </div>
+            </div>
+            
+            <!-- Esperienza 3 -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://scontent-fco2-1.xx.fbcdn.net/v/t39.30808-6/493870025_3589174738056153_2218992802133008699_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=LwWmG__Iuh0Q7kNvwGnq8lB&_nc_oc=Adlr6Fv7SV0zxbGBkY_DLizOggKwosvMhgt8onU-KLEHGbhR389k76DTH9XEB6XAVyk&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=dXco6xlGsQp9s8N6oj17NQ&oh=00_AfLACURGrMt2fyt3HutAYfh9fHmFjm4ldEQVFTXr24tmOQ&oe=684648BE" alt="Esperienza 3">
+                </div>
+                <div class="experience-date">
+                    25/11/2024-20/12/2024
+                </div>
+                <div class="experience-content">
+                    <h3>Terzo anno</h3>
+                    <p>Nel terzo anno ho lavorato presso Dilaxia S.p.A, sotto la YNAP dell'Interporto di Bologna. Ho avuto modo di lavorare in un ambiente altamente professionale e organizzato come helpdesk interno all'azienda.</p>
+                    <a href="esperienza3.html" class="btn">Dettagli</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://github.com/SimoneRenna" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#chi-sono">Chi sono</a>
+                <a href="#competenze">Competenze</a>
+                <a href="#esperienze">Esperienze</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Simone Renna. Tutti i diritti riservati.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling per i link del menu
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animazione al caricamento della pagina
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>

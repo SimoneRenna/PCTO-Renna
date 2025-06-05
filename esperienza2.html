@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esperienza secondo anno | Il mio PCTO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Stili identici a esperienza1.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, #2a2aa8 0%, #171418 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .back-button {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .hero-detail {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://static.tecnichenuove.it/automazionenews/2017/06/acnabologna.jpg');
+            background-repeat: no-repeat;
+            background-size:100% 100%;
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-detail h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-detail p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .content-section h2 {
+            color: #2a2aa8;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #2a2aa8;
+        }
+        
+        .content-section p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #2a2aa8;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2a2aa8;
+            border: 2px solid white;
+            box-shadow: 0 0 0 3px #2a2aa8;
+        }
+        
+        .timeline-item h3 {
+            color: #2a2aa8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-item {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-item i {
+            font-size: 2rem;
+            color: #2a2aa8;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #2a2aa8 0%, #171418 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-detail {
+                padding: 5rem 1.5rem 3rem;
+            }
+            
+            .hero-detail h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Torna alla Home
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-detail">
+        <h1>Esperienza secondo anno presso Cedab Srl</h1>
+        <p>Approfondimento e sviluppo di competenze più tecniche</p>
+        <div class="hero-meta">
+            <div class="meta-item">
+                <i class="far fa-calendar-alt"></i>
+                <span>03/05/2024-31/05/2024</span>
+            </div>
+            <div class="meta-item">
+                <i class="far fa-clock"></i>
+                <span>160 ore totali</span>
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Viale Aldo Moro, 22, 40127 Bologna BO</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Descrizione -->
+        <div class="content-section">
+            <h2>Descrizione dell'esperienza</h2>
+            <p>Nel secondo anno ho potuto approfondire le mie conoscenze tecniche presso Cedab Srl, affrontando progetti più complessi e inerenti al mio percorso di studi rispetto all'anno precedente.</p>
+            <p>Questa esperienza mi ha permesso di approfondire le mie conoscenze nel campo tecnico-sistemistico e di comprendere meglio il funzionamento delle reti, dei dispositivi e le loro varie configurazioni.</p>
+        </div>
+
+        <!-- Attività -->
+        <div class="content-section">
+            <h2>Progetti e attività</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Assistenza clientela</h3>
+                    <p>Partecipazione al processo di assistenza clienti sia da remoto che dal vivo.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Configurazione e creazioni di reti nuove</h3>
+                    <p>Ho avuto la possibilità di mettere mano sulle configurazioni di switch layer 2/3, firewall, router e gestione delle policy</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Configurazione di server e opzioni di backup</h3>
+                    <p>Varie configurazioni di server hostati su OS Windows Server/Distro Linux, gestione di backup locali e in cloud</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Installazione Fibra Ottica 10GBit</h3>
+                    <p>Installamento della Fibra Ottica a 10GBit presso la sede aziendale</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Competenze -->
+        <div class="content-section">
+            <h2>Competenze rafforzate</h2>
+            <p>Durante questa esperienza ho consolidato e ampliato il mio bagaglio di competenze:</p>
+            
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <h3>Rapporto con la clientela</h3>
+                    <p>Sviluppato abilità di comunicazione con la clientela</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fa-solid fa-lock"></i>
+                    <h3>Cybersecurity</h3>
+                    <p>Impostazioni necessarie per assicurare un ambiente sicuro</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fa-solid fa-users"></i>
+                    <h3>Teamwork</h3>
+                    <p>Rafforzato ulteriormente le competenze di teamwork con un team ristretto</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fa fa-gear"></i>
+                    <h3>Manutenzione di dispositivi e macchine</h3>
+                    <p>Sviluppo di competenze in ambito di troubleshooting di problematiche hardware e software</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Riflessioni -->
+        <div class="content-section">
+            <h2>Riflessioni e crescita</h2>
+            <p>Questa esperienza mi ha permesso di comprendere l'importanza del lavoro di squadra e della pianificazione e suddivisione dei ruoli durante il lavoro.</p>
+            <p>Ho potuto apprezzare come le diverse figure professionali collaborino per raggiungere un obiettivo comune.</p>
+            <p>L'esperienza ha rafforzato il mio interesse per il mondo IT e mi ha motivato ad approfondire ulteriormente le tecnologie moderne.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Simone Renna - Tutti i diritti riservati</p>
+        </div>
+    </footer>
+</body>
+</html>

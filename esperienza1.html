@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esperienza primo anno | Il mio PCTO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Stili base dal tuo sito principale */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header stile sito principale */
+        header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, #2a2aa8 0%, #171418 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .back-button {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Hero section stile dettaglio */
+        .hero-detail {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.mast.org/documents/41694/42049/Facciata-MAST-2.jpg/6150af4f-5821-4fd7-824b-e236e91d93c8?t=1413885019916');
+            background-repeat: no-repeat;
+            background-size:100% 100%;
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-detail h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-detail p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        
+        /* Contenuto principale */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .content-section h2 {
+            color: #2a2aa8;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #2a2aa8;
+        }
+        
+        .content-section p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #2a2aa8;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2a2aa8;
+            border: 2px solid white;
+            box-shadow: 0 0 0 3px #2a2aa8;
+        }
+        
+        .timeline-item h3 {
+            color: #2a2aa8;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Competenze */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-item {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-item i {
+            font-size: 2rem;
+            color: #2a2aa8;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2a2aa8 0%, #171418 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-detail {
+                padding: 5rem 1.5rem 3rem;
+            }
+            
+            .hero-detail h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Torna alla Home
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-detail">
+        <h1>Esperienza primo anno MAST</h1>
+        <p>Una panoramica completa della mia prima esperienza PCTO al MAST</p>
+        <div class="hero-meta">
+            <div class="meta-item">
+                <i class="far fa-calendar-alt"></i>
+                <span>Novembre-Dicembre 2022</span>
+            </div>
+            <div class="meta-item">
+                <i class="far fa-clock"></i>
+                <span>80 ore totali</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Descrizione -->
+        <div class="content-section">
+            <h2>Descrizione dell'esperienza</h2>
+            <p>Durante il mio primo anno di PCTO ho avuto l'opportunità di avvicinarmi al mondo del lavoro attraverso un'esperienza presso il MAST di Bologna situato in  Via Speranza, 42, 40133 Bologna BO.</p>
+            <p>Questa esperienza mi ha permesso di comprendere le dinamiche lavorative di base tra cui leadership, teamwork e progettazione di soluzioni innovative.</p>
+        </div>
+
+        <!-- Attività -->
+        <div class="content-section">
+            <h2>Attività svolte</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Introduzione all'azienda</h3>
+                    <p>Presentazione del luogo, giro nei reparti e nel museo aziendale e introduzione delle attività.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Struttura aziendale</h3>
+                    <p>Apprendimento delle principali tecnologie utilizzate in azienda e dei processi lavorativi.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Progetto pratico</h3>
+                    <p>Sviluppo di un progetto di packaging innovativo sotto la guida di vari supervisori aziendali.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Competenze -->
+        <div class="content-section">
+            <h2>Competenze acquisite</h2>
+            <p>Durante questa esperienza ho potuto sviluppare diverse competenze trasversali e tecniche:</p>
+            
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Teamwork</h3>
+                    <p>Lavoro in gruppo e collaborazione</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-calendar"></i>
+                    <h3>Organizzazione del tempo</h3>
+                    <p>Rispetto delle deadline</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Gestione progetti</h3>
+                    <p>Organizzazione del lavoro</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Riflessioni -->
+        <div class="content-section">
+            <h2>Riflessioni personali</h2>
+            <p>Questa prima esperienza è stata fondamentale per comprendere l'importanza del PCTO nel collegamento tra scuola e mondo del lavoro.</p>
+            <p>Ho potuto osservare da vicino per la prima volta in assoluto un contesto lavorativo reale.</p>
+            <p>L'esperienza mi ha motivato a continuare il mio percorso di apprendimento con maggiore consapevolezza e una nuova prospettiva per il futuro.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Simone Renna - Tutti i diritti riservati</p>
+        </div>
+    </footer>
+</body>
+</html>

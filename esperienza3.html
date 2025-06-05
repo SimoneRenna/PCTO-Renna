@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esperienza terzo anno | Il mio PCTO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Stili identici alle pagine precedenti */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, #2a2aa8 0%, #171418 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .back-button {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .hero-detail {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://scontent-fco2-1.xx.fbcdn.net/v/t39.30808-6/493870025_3589174738056153_2218992802133008699_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=LwWmG__Iuh0Q7kNvwGnq8lB&_nc_oc=Adlr6Fv7SV0zxbGBkY_DLizOggKwosvMhgt8onU-KLEHGbhR389k76DTH9XEB6XAVyk&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=dXco6xlGsQp9s8N6oj17NQ&oh=00_AfLACURGrMt2fyt3HutAYfh9fHmFjm4ldEQVFTXr24tmOQ&oe=684648BE');
+            background-repeat: no-repeat;
+            background-size:100% 100%;
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-detail h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-detail p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .content-section h2 {
+            color: #2a2aa8;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #2a2aa8;
+        }
+        
+        .content-section p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #2a2aa8;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2a2aa8;
+            border: 2px solid white;
+            box-shadow: 0 0 0 3px #2a2aa8;
+        }
+        
+        .timeline-item h3 {
+            color: #2a2aa8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-item {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-item i {
+            font-size: 2rem;
+            color: #2a2aa8;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Stile aggiuntivo per progetti */
+        .project-showcase {
+            background: #f0f4f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2a2aa8;
+        }
+        
+        .project-showcase h4 {
+            color: #2a2aa8;
+            margin-bottom: 0.5rem;
+        }
+        
+       /* Nuovo stile per il footer */
+       footer {
+            background: linear-gradient(135deg, #2a2aa8 0%, #171418 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            color: #f1f1f1;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #f1f1f1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-detail {
+                padding: 5rem 1.5rem 3rem;
+            }
+            
+            .hero-detail h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Torna alla Home
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-detail">
+        <h1>Esperienza terzo anno presso Dilaxia S.p.A (YNAP)</h1>
+        <p>La fine del mio percorso PCTO</p>
+        <div class="hero-meta">
+            <div class="meta-item">
+                <i class="far fa-calendar-alt"></i>
+                <span>25/11/2024-20/12/2024</span>
+            </div>
+            <div class="meta-item">
+                <i class="far fa-clock"></i>
+                <span>136 ore totali</span>
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Interporto di Bologna, Blocco 15, 2.1, 40010, 40010 Bentivoglio BO</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Descrizione -->
+        <div class="content-section">
+            <h2>L'Esperienza</h2>
+            <p>Nel terzo anno ho avuto l'opportunità di lavorare per conto di Dilaxia S.p.A (presso YNAP), mettendo in pratica tutte le competenze acquisite negli anni precedenti.</p>
+            <p>Questa esperienza mi ha permesso di lavorare come parte integrante di un team helpdesk, seguendo metodologie professionali e contribuendo attivamente alla risoluzione di problemi interni all'azienda.</p>
+            
+
+        <!-- Attività -->
+        <div class="content-section">
+            <h2>Attività svolte</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Giro dell'azienda e introduzione del team</h3>
+                    <p>Sono stato accolto calorosamente dal tutor aziendale ed ho avuto il piacere di conoscere tutto il team con cui avrei lavorato</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Preparazione di PC aziendali</h3>
+                    <p>Building di PC preassemblati per studi fotografici con pacchetto programmi e policy aziendali preimpostati.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Manutenzione di diversi dispositivi e macchinari</h3>
+                    <p>Troubleshooting di rulli automatici e apparecchi per scannerizzare prodotti e timbrare i turni lavorativi</p>
+                </div>
+              
+        </div>
+
+        <!-- Competenze -->
+        <div class="content-section">
+            <h2>Competenze professionali</h2>
+            <p>Questa esperienza mi ha permesso di sviluppare competenze a livello professionale:</p>
+            
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Problem solving</h3>
+                    <p>Capacità di organizzare il proprio lavoro trovando soluzioni pratiche per problemi complessi</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Teamwork</h3>
+                    <p>Capacità di adattarsi a collaborare con nuove persone in poco tempo</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-comments"></i>
+                    <h3>Comunicazione & Social Skills</h3>
+                    <p>Teamwork e presentazioni, partecipazione a riunioni aziendali</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Riflessioni -->
+        <div class="content-section">
+            <h2>Riflessioni finali</h2>
+            <p>Questa esperienza rappresenta il culmine del mio percorso PCTO, dimostrando come sia cresciuto professionalmente in questi tre anni.</p>
+            <p>Ho potuto apprezzare la professionalità di questa esperienza sia dal lato gestionale che del personale stesso, rimanendo pur sempre cordiale e disponibile a fornire consigli per tutte le attività svolte e .</p>
+            <p>L'esperienza ha confermato la mia passione per l'informatica e mi ha fornito una chiara direzione per il mio futuro professionale.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+     <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://github.com/SimoneRenna" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#chi-sono">Chi sono</a>
+                <a href="index.html#competenze">Competenze</a>
+                <a href="index.html#esperienze">Esperienze</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Simone Renna. Tutti i diritti riservati.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
